@@ -12,9 +12,9 @@ namespace Bounciness.Controller
         
         [SerializeField] 
         private ScriptableVariableFloat currentMovementMagnitudeScriptableVariable;
-
-        [SerializeField] 
-        private UnityEvent onBounceDealed;
+        
+        [SerializeField]
+        private float maxMovementMagnitude;
 
         private Vector2 lastVelocity;
 
@@ -23,6 +23,7 @@ namespace Bounciness.Controller
         private void Update()
         {
             lastVelocity = characterRigidbody.velocity;
+            lastVelocity = Vector3.ClampMagnitude(lastVelocity, maxMovementMagnitude);
             currentMovementMagnitudeScriptableVariable.SetValue(lastVelocity.x);
         } 
 
@@ -33,7 +34,6 @@ namespace Bounciness.Controller
             collision2D.gameObject.TryGetComponent(out IBounceDealer bounceDealer);
             if(bounceDealer == null) return;
             bounceDealer.DoBounce(characterRigidbody, collision2D.contacts[0].normal, lastVelocity);
-            onBounceDealed.Invoke();
         }
 
         public void ApplyBounce(Collider2D collider2D)
@@ -42,7 +42,6 @@ namespace Bounciness.Controller
             if(bounceDealer == null) return;
             Vector2 contactPoint = collider2D.ClosestPoint(characterRigidbody.transform.position);
             bounceDealer.DoBounce(characterRigidbody, contactPoint.normalized, lastVelocity);
-            onBounceDealed.Invoke();
         }
 
         

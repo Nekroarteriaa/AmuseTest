@@ -1,6 +1,7 @@
 using Bounce.Interface;
 using ScriptableVariables.Float;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Bounce.Base
 {
@@ -10,6 +11,9 @@ namespace Bounce.Base
 
         [SerializeField] 
         private ScriptableVariableFloat bouncinessForceToDeal;
+
+        [SerializeField] 
+        protected UnityEvent onBounce;
 
         public virtual void DoBounce(Rigidbody2D rigidbody2DToBounce, Vector2 impactNormal, Vector2 currentVelocity)
         {

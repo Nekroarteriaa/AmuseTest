@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using Enums;
 using UnityEngine;
@@ -28,34 +29,53 @@ namespace Movement.YoyoMove.Controller
 
         private void OnEnable()
         {
+            StartCoroutine(WaitForPositioning());
+        }
+
+        private void OnDisable()
+        {
+            transformToMove.DOKill();
+            StopCoroutine(WaitForPositioning());
+        }
+
+        IEnumerator WaitForPositioning()
+        {
+            yield return new WaitForEndOfFrame();
+            ApplyMove();
+        }
+        
+        private void ApplyMove()
+        {
             Vector3 directionVector = transformToMove.position;
             float distanceToApply = movementDistance;
-            
-            if(randomnessInDistance)
-               distanceToApply = Random.Range(-movementDistance, movementDistance);
+
+            if (randomnessInDistance)
+                distanceToApply = Random.Range(-movementDistance, movementDistance);
             if (useAbsoluteValues)
                 distanceToApply = Mathf.Abs(distanceToApply);
-            
+
             switch (desiredDirection)
             {
                 case AxisToFollow.X:
                     directionVector.x += distanceToApply;
                     break;
                 case AxisToFollow.Y:
-                    directionVector.y +=  distanceToApply;
+                    directionVector.y += distanceToApply;
                     break;
                 case AxisToFollow.Z:
                     directionVector.z += distanceToApply;
                     break;
                 case AxisToFollow.All:
                     float temp = Random.Range(-movementDistance, movementDistance);
-                    directionVector +=  new Vector3(temp, temp, temp);
+                    directionVector += new Vector3(temp, temp, temp);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            transformToMove.DOMove(directionVector, movementDisplacementDuration).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+            transformToMove.DOMove(directionVector, movementDisplacementDuration).SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutSine);
         }
+
     }
 }
