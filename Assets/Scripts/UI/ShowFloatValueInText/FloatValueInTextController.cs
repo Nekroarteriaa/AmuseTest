@@ -1,4 +1,3 @@
-using System.Globalization;
 using ScriptableVariables.Float;
 using TMPro;
 using UnityEngine;
@@ -12,10 +11,12 @@ namespace UI.ShowFloatValueInText
 
         [SerializeField]
         private ScriptableVariableFloat floatScriptableVariable;
+        
+        private string format = "0.00";
 
         public void ShowFloatValueInText()
         {
-            distanceAmountText.SetText(floatScriptableVariable.Value.ToString(CultureInfo.CurrentCulture));
+            distanceAmountText.SetText(floatScriptableVariable.Value.ToString(format));
         }
 
     }
