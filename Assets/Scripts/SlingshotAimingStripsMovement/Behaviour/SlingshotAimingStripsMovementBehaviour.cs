@@ -1,5 +1,5 @@
 using ScriptableVariables.Vector2Unity;
-using SlingshotAimingMovement.Interface;
+using SlingshotAimingStripsMovement.Interface;
 using UnityEngine;
 
 namespace SlingshotAimingStripsMovement.Behaviour
@@ -7,7 +7,7 @@ namespace SlingshotAimingStripsMovement.Behaviour
     public class SlingshotAimingStripsMovementBehaviour : MonoBehaviour, ISlingshotAimingMovement
     {
         [SerializeField] 
-        private Transform birdTransform;
+        private Transform characterTransform;
         
         [SerializeField] 
         private ScriptableVariableVector2 currentStripPositionScriptableVariable;
@@ -16,13 +16,13 @@ namespace SlingshotAimingStripsMovement.Behaviour
         private Transform slingshotCenterPoint;
 
         [SerializeField] 
-        private Vector2 birdOffsetFromCenterPoint;
+        private Vector2 characterOffsetFromCenterPoint;
         
         public void DoAimingMovement()
         {
             Vector2 direction = currentStripPositionScriptableVariable.Value - (Vector2)slingshotCenterPoint.position;
-            birdTransform.position = currentStripPositionScriptableVariable.Value + direction.normalized * birdOffsetFromCenterPoint;
-            birdTransform.right = -direction.normalized;
+            characterTransform.position = currentStripPositionScriptableVariable.Value + direction.normalized * characterOffsetFromCenterPoint;
+            characterTransform.right = -direction.normalized;
         }
     }
 }

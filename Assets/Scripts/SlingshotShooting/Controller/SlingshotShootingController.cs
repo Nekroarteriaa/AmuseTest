@@ -1,8 +1,8 @@
-using ScriptableEvents.Void;
 using ScriptableVariables.Vector2Unity;
 using Slingshot.Controller;
 using SlingshotShooting.Behaviour;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlingshotShooting.Controller
 {
@@ -16,9 +16,9 @@ namespace SlingshotShooting.Controller
         private ScriptableVariableVector2 currentStripsPositionScriptableVariable;
 
         [SerializeField] 
-        private ScriptableEventVoid OnShootScriptableEvent;
+        private UnityEvent OnShootScriptableEvent;
         
-        private bool hasThrownTheBird;
+        private bool hasThrownTheCharacter;
 
         public override void OnFireButtonPressed()
         {
@@ -27,14 +27,14 @@ namespace SlingshotShooting.Controller
 
         public override void OnFireButtonReleased()
         {
-            if(hasThrownTheBird) return;
+            if(hasThrownTheCharacter) return;
             slingshotShootingBehaviour.DoShoot(currentStripsPositionScriptableVariable.Value, centerPoint.position, stripsMaxElasticityScriptableVariable.Value);
-            OnShootScriptableEvent.InvokeEvent();
+            OnShootScriptableEvent.Invoke();
         }
         
         public void StopShooting()
         {
-            hasThrownTheBird = true;
+            hasThrownTheCharacter = true;
         }
     }
 }

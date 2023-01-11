@@ -1,4 +1,3 @@
-using System;
 using ScriptableVariables.Float;
 using Slingshot.Interface;
 using UnityEngine;
@@ -13,6 +12,8 @@ namespace Slingshot.Controller
         [SerializeField]
         protected ScriptableVariableFloat stripsMaxElasticityScriptableVariable;
 
+        #region UnityEvents
+        
         protected void OnEnable()
         {
             
@@ -31,8 +32,11 @@ namespace Slingshot.Controller
 
         private void OnMouseUp()
         {
-           OnFireButtonReleased();
+            OnFireButtonReleased();
         }
+        
+
+        #endregion
 
         public abstract void OnFireButtonPressed();
         public abstract void OnFireButtonReleased();

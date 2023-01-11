@@ -1,9 +1,6 @@
-using System;
-using System.Threading.Tasks;
-using ScriptableEvents.Void;
-using ScriptableVariables.Boolean;
 using ScriptableVariables.Float;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace EndingGame.Controller
 {
@@ -11,29 +8,26 @@ namespace EndingGame.Controller
     {
         [SerializeField]
         private ScriptableVariableFloat currentMovementMagnitudeScriptableVariable;
+        
         [SerializeField] 
-        private ScriptableEventVoid onBirdStoppedScriptableEvent;
+        private UnityEvent onCharacterStoppedScriptableEvent;
 
         private bool hasLostAllVelocity => currentMovementMagnitudeScriptableVariable.Value <= 0;
+        
         private bool hasTheGameFinished = true;
 
         private void Update()
         {
             if(hasTheGameFinished) return;
             if(!hasLostAllVelocity) return;
-            onBirdStoppedScriptableEvent.InvokeEvent();
+            onCharacterStoppedScriptableEvent.Invoke();
             hasTheGameFinished = true;
         }
 
-        public void OnShoot()
+        public void GameHasBegun()
         {
-            _ = WaitToLaunchTheBird();
-        }
-
-        async Task WaitToLaunchTheBird()
-        {
-            await Task.Delay(1000);
             hasTheGameFinished = false;
         }
+
     }
 }

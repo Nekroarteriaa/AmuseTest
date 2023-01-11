@@ -11,12 +11,14 @@ namespace Triggers.Controller
         
         [SerializeField] 
         private UnityEvent<Collider2D> onTrigger2DEnterEvent;
+        
         [SerializeField] 
         private UnityEvent<Collider2D> onTrigger2DStayEvent;
+        
         [SerializeField] 
         private UnityEvent<Collider2D> onTrigger2DExitEvent;
 
-
+        #region UnityEvents
         private void OnTriggerEnter2D(Collider2D col)
         {
             if(!ComparingLayerMaskBehaviour.AreLayerMaskEquals(layerMaskToDetect, col.gameObject.layer)) return;
@@ -34,5 +36,9 @@ namespace Triggers.Controller
             if(!ComparingLayerMaskBehaviour.AreLayerMaskEquals(layerMaskToDetect, other.gameObject.layer)) return;
             onTrigger2DExitEvent.Invoke(other);
         }
+
+        #endregion
+
+
     }
 }

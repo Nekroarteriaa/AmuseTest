@@ -1,4 +1,4 @@
-namespace SlingshotAimingMovement.Interface
+namespace SlingshotAimingStripsMovement.Interface
 {
     public interface ISlingshotAimingMovement
     {

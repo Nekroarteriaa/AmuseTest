@@ -11,11 +11,14 @@ namespace Collisions.UnityCollision2DController
         
         [SerializeField]
         private UnityEvent<Collision2D> onCollisionEnter2DEvent;
+        
         [SerializeField]
         private UnityEvent<Collision2D> onCollisionStay2DEvent;
+        
         [SerializeField]
         private UnityEvent<Collision2D> onCollisionExit2DEvent;
-        
+
+        #region UnityEvents
 
         private void OnCollisionEnter2D(Collision2D col)
         {
@@ -34,5 +37,9 @@ namespace Collisions.UnityCollision2DController
             if(!ComparingLayerMaskBehaviour.AreLayerMaskEquals(layerMaskToDetect, other.gameObject.layer)) return;
             onCollisionExit2DEvent.Invoke(other);
         }
+        
+
+        #endregion
+
     }
 }

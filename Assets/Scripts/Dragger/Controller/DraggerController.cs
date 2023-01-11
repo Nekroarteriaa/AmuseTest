@@ -7,7 +7,7 @@ namespace Dragger.Controller
     public class DraggerController : MonoBehaviour
     {
         [SerializeField] 
-        private Rigidbody2D birdRigidbody2D;
+        private Rigidbody2D characterRigidbody2D;
 
         [SerializeField] 
         private float timeToReachTotalStop;
@@ -17,8 +17,8 @@ namespace Dragger.Controller
 
         public void ApplyDragging()
         {
-            if(birdRigidbody2D.velocity == Vector2.zero) return;
-            groundDraggerBehaviour.DoDrag(birdRigidbody2D, timeToReachTotalStop);
+            if(characterRigidbody2D.velocity == Vector2.zero) return;
+            groundDraggerBehaviour.DoDrag(characterRigidbody2D, timeToReachTotalStop);
         }
         
         public void ResetDragginCounter()

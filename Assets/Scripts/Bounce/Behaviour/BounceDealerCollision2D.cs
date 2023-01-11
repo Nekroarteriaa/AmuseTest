@@ -1,5 +1,5 @@
-using System;
 using Bounce.Base;
+using Enums;
 using UnityEngine;
 
 namespace Bounce.Behaviour
@@ -37,11 +37,4 @@ namespace Bounce.Behaviour
             return hasHitted;
         }
     }
-    
-
-    public enum AxisToStop
-    {
-        X,
-        Y
-    };
 }

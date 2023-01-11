@@ -8,6 +8,7 @@ namespace ScriptableEvents.BaseArgs
     {
         public UnityEvent<T> OnScriptableEvent => onScriptableEvent;
 
+        [SerializeField]
         private UnityEvent<T> onScriptableEvent;
 
         public virtual void InvokeEvent(T arg)

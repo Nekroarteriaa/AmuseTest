@@ -7,7 +7,7 @@ namespace ScriptableEventListeners.Void
 {
     public class ScriptableEventListenerVoid : MonoBehaviour, IScriptableEventListener
     {
-        public ScriptableEventVoid ScriptableEventToListen { get; }
+        public ScriptableEventVoid ScriptableEventToListen => scriptableEventVoidToListen;
         
         [SerializeField] 
         private ScriptableEventVoid scriptableEventVoidToListen;
