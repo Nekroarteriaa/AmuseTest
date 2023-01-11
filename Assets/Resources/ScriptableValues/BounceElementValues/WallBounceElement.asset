@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dde982c989243979a75a70151e5f4ae, type: 3}
-  m_Name: ScriptableVariableVector2
+  m_Script: {fileID: 11500000, guid: 377ba9d2e2714bcf82b47241fe0654b7, type: 3}
+  m_Name: WallBounceElement
   m_EditorClassIdentifier: 
-  value: {x: 1, y: 0.8}
+  value: 1.1
