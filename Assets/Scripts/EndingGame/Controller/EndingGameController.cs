@@ -16,6 +16,8 @@ namespace EndingGame.Controller
         
         private bool hasTheGameFinished = true;
 
+        #region UnityEvents
+
         private void Update()
         {
             if(hasTheGameFinished) return;
@@ -23,6 +25,9 @@ namespace EndingGame.Controller
             onCharacterStoppedScriptableEvent.Invoke();
             hasTheGameFinished = true;
         }
+
+        #endregion
+
 
         public void GameHasBegun()
         {

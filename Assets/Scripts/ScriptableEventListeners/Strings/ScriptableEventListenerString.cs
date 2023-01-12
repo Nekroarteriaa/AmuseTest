@@ -15,6 +15,8 @@ namespace ScriptableEventListeners.Strings
         [SerializeField] 
         private UnityEvent<string> onScriptableEventResponse;
         
+        #region UnityEvents
+
         private void OnEnable()
         {
             scriptableEventVoidToListen.OnScriptableEvent.AddListener(Response);
@@ -29,5 +31,9 @@ namespace ScriptableEventListeners.Strings
         {
             onScriptableEventResponse.Invoke(args);
         }
+
+        #endregion
+        
+       
     }
 }

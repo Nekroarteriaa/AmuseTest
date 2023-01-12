@@ -1,22 +1,25 @@
+using DontDestroyObjects.Behaviour;
 using UnityEngine;
 
 namespace DontDestroyObjects.Controller
 {
+    [RequireComponent(typeof(DontDestroyObjectBehaviour))]
     public class DontDestroyObjectController : MonoBehaviour
     {
         [SerializeField] 
         private Transform objectNotToDestroy;
 
+        [SerializeField]
+        private DontDestroyObjectBehaviour dontDestroyObjectBehaviour;
+
         private void Awake()
         {
-            DontDestroyOnLoad(objectNotToDestroy.gameObject);
+            dontDestroyObjectBehaviour.DoNotDestroyDesiredObject(objectNotToDestroy.gameObject);
         }
 
         public void StopPersistance()
         {
-            GameObject temp = new GameObject("Temp");
-           objectNotToDestroy.SetParent(temp.transform);
-            Destroy(temp);
+            dontDestroyObjectBehaviour.DoDestroyPersistenObject();
         }
     }
 }

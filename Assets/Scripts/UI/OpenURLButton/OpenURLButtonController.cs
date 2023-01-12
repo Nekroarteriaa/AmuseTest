@@ -11,6 +11,8 @@ namespace UI.OpenURLButton
 
         [SerializeField] 
         private string urlToOpen;
+        
+        #region UnityEvents
 
         private void OnEnable()
         {
@@ -21,6 +23,10 @@ namespace UI.OpenURLButton
         {
             buttonToInteract.onClick.RemoveListener(OpenURL);
         }
+        
+
+        #endregion
+
 
         void OpenURL()
         {

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6259506045497702552}
   - component: {fileID: 6259506045497702559}
+  - component: {fileID: 5219678344870816742}
   m_Layer: 7
   m_Name: AudioPitchController
   m_TagString: Untagged
@@ -46,6 +47,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSourceToModify: {fileID: 0}
   pitchRandomnessSpectrum: 0.15
+  audioPitchBehaviour: {fileID: 5219678344870816742}
+--- !u!114 &5219678344870816742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6259506045497702553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3327860f5af04a998bfdace3520b4bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6259506045717290686
 GameObject:
   m_ObjectHideFlags: 0

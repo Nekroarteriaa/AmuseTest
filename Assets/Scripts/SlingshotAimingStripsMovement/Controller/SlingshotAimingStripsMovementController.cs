@@ -12,11 +12,16 @@ namespace SlingshotAimingStripsMovement.Controller
         
         [SerializeField]
         private ScriptableVariableBoolean isAimingScriptableVariable;
+        
+        #region UnityEvents
+
         private void Update()
         {
             if(!isAimingScriptableVariable.Value) return;
             slingshotAimingStripsMovementBehaviour.DoAimingMovement();
         }
+
+        #endregion
 
     }
 }

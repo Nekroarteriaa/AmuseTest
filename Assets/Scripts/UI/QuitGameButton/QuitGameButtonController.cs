@@ -8,6 +8,8 @@ namespace UI.QuitGameButton
         [SerializeField] 
         private Button buttonToInteract;
 
+        #region UnityEvents
+
         private void OnEnable()
         {
             buttonToInteract.onClick.AddListener(DoQuitGame);
@@ -17,6 +19,10 @@ namespace UI.QuitGameButton
         {
             buttonToInteract.onClick.RemoveListener(DoQuitGame);
         }
+        
+
+        #endregion
+        
 
         void DoQuitGame()
         {

@@ -18,7 +18,8 @@ namespace UnityEventsCallbacks.Controller
 
         [SerializeField] 
         private UnityEvent onDisable;
-
+        
+        #region UnityEvents
         private void Awake()
         {
             onAwakeEvent.Invoke();
@@ -26,7 +27,7 @@ namespace UnityEventsCallbacks.Controller
 
         private void OnEnable()
         {
-            StartCoroutine(wea());
+            StartCoroutine(DoOnEnable());
         }
 
         private void Start()
@@ -39,7 +40,10 @@ namespace UnityEventsCallbacks.Controller
             onDisable.Invoke();
         }
 
-        IEnumerator wea()
+        #endregion
+
+
+        IEnumerator DoOnEnable()
         {
             yield return new WaitForEndOfFrame();
             onEnableEvent.Invoke();

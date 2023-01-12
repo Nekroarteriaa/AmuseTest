@@ -14,7 +14,9 @@ namespace ScriptableEventListeners.Floats
         
         [SerializeField] 
         private UnityEvent<float> onScriptableEventResponse;
-        
+
+        #region UnityEvents
+
         private void OnEnable()
         {
             scriptableEventVoidToListen.OnScriptableEvent.AddListener(Response);
@@ -29,5 +31,9 @@ namespace ScriptableEventListeners.Floats
         {
             onScriptableEventResponse.Invoke(args);
         }
+        
+
+        #endregion
+        
     }
 }

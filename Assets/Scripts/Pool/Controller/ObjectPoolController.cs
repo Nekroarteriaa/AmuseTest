@@ -32,6 +32,8 @@ namespace Pool.Controller
         private ObjectPool<PoolableObjectsController> objectPool;
         private GameObject pooledObjectsContainer;
 
+        #region UnityEvents
+
         private void Awake()
         {
             objectPool = new ObjectPool<PoolableObjectsController>(CreatePoolElements, GetObjectFromPool, DoReturnObjectToPool,
@@ -39,6 +41,10 @@ namespace Pool.Controller
             pooledObjectsContainer = new GameObject($"{prefabToIntantiate.name}Container");
             pooledObjectsContainer.transform.position = Vector2.zero;
         }
+        
+
+        #endregion
+
 
         public void GetPoolElements()
         {
