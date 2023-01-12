@@ -1,3 +1,4 @@
+using System;
 using ScriptableVariables.Float;
 using UnityEngine;
 
@@ -32,13 +33,20 @@ namespace Parallax
         
         private float currentTime;
 
+        private Vector3 finalPosition;
+
+        private void OnEnable()
+        {
+            finalPosition = parallaxPlaneToMove.transform.position;
+        }
+
         #region UnityEvents
 
         private void FixedUpdate()
         {
             if(!canFollowTheCamera) return;
-            float currentParallaxPositionX = virtualCamera.transform.position.x * panelMovement;
-            parallaxPlaneToMove.position = new Vector3(currentParallaxPositionX, parallaxPlaneToMove.position.y, parallaxPlaneToMove.position.z);
+            finalPosition.x = virtualCamera.transform.position.x * panelMovement;
+            parallaxPlaneToMove.position = finalPosition;
         }
 
         private void LateUpdate()
@@ -59,7 +67,7 @@ namespace Parallax
             previousAcceleration = currentAcceleration;
         }
 
-        public void OnShoot()
+        public void BeginParallaxEffect()
         {
             canFollowTheCamera = true;
         }

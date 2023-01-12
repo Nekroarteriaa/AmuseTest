@@ -17,5 +17,6 @@ namespace SlingshotAimingStripsMovement.Controller
             if(!isAimingScriptableVariable.Value) return;
             slingshotAimingStripsMovementBehaviour.DoAimingMovement();
         }
+
     }
 }

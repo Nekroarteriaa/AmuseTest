@@ -18,7 +18,7 @@ namespace Bounce.Behaviour
             }
             
             base.DoBounce(rigidbody2DToBounce, impactNormal, currentVelocity);
-            
+            onBounce.Invoke();
         }
         
         bool IsHittingOnAxisToStop(AxisToStop axisToStop, Vector2 impactNormal)

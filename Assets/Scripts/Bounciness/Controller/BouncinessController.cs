@@ -17,6 +17,7 @@ namespace Bounciness.Controller
         private float maxMovementMagnitude;
 
         private Vector2 lastVelocity;
+        
 
         #region UnityEvents
 

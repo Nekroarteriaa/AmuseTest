@@ -14,7 +14,7 @@ TagManager:
   - Bounce
   - CharacterPlayer
   - ObjectPoolReturner
-  - 
+  - FollowCharacterLayerTrigger
   - 
   - 
   - 

@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 namespace ScriptableEvents.BaseArgs
 {
-    public class ScriptableEventBaseArgs<T>: ScriptableObject, IScriptableEvent<T>
+    public abstract class ScriptableEventBaseArgs<T>: ScriptableObject, IScriptableEvent<T>
     {
         public UnityEvent<T> OnScriptableEvent => onScriptableEvent;
 

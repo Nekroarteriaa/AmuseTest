@@ -1,6 +1,7 @@
 using System;
 using Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Movement.MoveAlongAnotherTransform.Controller
 {
@@ -21,8 +22,8 @@ namespace Movement.MoveAlongAnotherTransform.Controller
         [SerializeField] 
         private AxisToFollow axisToFollow;
         
-        [SerializeField]
-        private bool canFollowTheCamera;
+        [FormerlySerializedAs("canFollowTheCamera")] [SerializeField]
+        private bool canMoveAlongTransform;
 
         private Vector3 desiredAxisValueFromTransformToMoveAlong;
         
@@ -30,7 +31,7 @@ namespace Movement.MoveAlongAnotherTransform.Controller
 
         private void FixedUpdate()
         {
-            if(!canFollowTheCamera) return;
+            if(!canMoveAlongTransform) return;
             desiredAxisValueFromTransformToMoveAlong = transformToMove.position;
             switch (axisToFollow)
             {
@@ -41,7 +42,7 @@ namespace Movement.MoveAlongAnotherTransform.Controller
                     desiredAxisValueFromTransformToMoveAlong.y = transformToMoveAlong.position.y;
                     break;
                 case AxisToFollow.Z:
-                    desiredAxisValueFromTransformToMoveAlong.y = transformToMoveAlong.position.z;
+                    desiredAxisValueFromTransformToMoveAlong.z = transformToMoveAlong.position.z;
                     break;
                 case AxisToFollow.All:
                     desiredAxisValueFromTransformToMoveAlong = transformToMoveAlong.position;
@@ -49,12 +50,14 @@ namespace Movement.MoveAlongAnotherTransform.Controller
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            transformToMove.position = (desiredAxisValueFromTransformToMoveAlong + offsetPosition) * movementSpeed;
+
+            transformToMove.position = Vector3.Lerp(transformToMove.position,
+                (desiredAxisValueFromTransformToMoveAlong + offsetPosition), movementSpeed); //  movementSpeed;
         }
         
-        public void OnShoot()
+        public void BeginToFollow()
         {
-            canFollowTheCamera = true;
+            canMoveAlongTransform = true;
         }
         
         #endregion

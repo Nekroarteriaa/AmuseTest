@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SlingshotScene 1.unity
+    path: Assets/Scenes/MainMenu.unity
+    guid: b6dd534ab85a24c6aaa02f308c8aec5e
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
     guid: df083c67e3ebe4db38b3080e99a792cd
   m_configObjects: {}
