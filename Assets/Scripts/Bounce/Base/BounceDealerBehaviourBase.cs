@@ -7,6 +7,7 @@ namespace Bounce.Base
 {
     public abstract class BounceDealerBehaviourBase : MonoBehaviour , IBounceDealer
     {
+        public Vector2 BounceApplied => bounceApplied;
         public float BouncinessForceToDeal => bouncinessForceToDeal.Value;
 
         [SerializeField] 
@@ -15,12 +16,15 @@ namespace Bounce.Base
         [SerializeField] 
         protected UnityEvent onBounce;
 
+        protected Vector2 bounceApplied;
+
         public virtual void DoBounce(Rigidbody2D rigidbody2DToBounce, Vector2 impactNormal, Vector2 currentVelocity)
         {
             var direction = Vector2.Reflect(currentVelocity.normalized, impactNormal);
             var magnitude = currentVelocity.magnitude;
             rigidbody2DToBounce.velocity = Vector2.zero;
-            rigidbody2DToBounce.AddForce(direction * magnitude * BouncinessForceToDeal, ForceMode2D.Impulse);
+            bounceApplied = direction * magnitude * BouncinessForceToDeal;
+            rigidbody2DToBounce.AddForce(bounceApplied, ForceMode2D.Impulse);
         }
        
         public void CancelBounce(Rigidbody2D rigidbody2DToBounce)

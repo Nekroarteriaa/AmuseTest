@@ -21,7 +21,7 @@ namespace Parallax
         [SerializeField] 
         private Renderer selfRenderer;
 
-        [SerializeField][Range(10f, 100f)] 
+        [SerializeField][Range(0f, 100f)] 
         private float parallaxEffectIntensity;
 
         [SerializeField]

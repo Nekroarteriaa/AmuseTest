@@ -16,6 +16,9 @@ namespace Async.Waiter.Behaviour
 
         [SerializeField]
         private int timeToAwaitInMilliseconds;
+
+        [SerializeField] 
+        private UnityEvent onDoWait;
         
         [SerializeField] 
         private UnityEvent onFinishWaiting;
@@ -41,6 +44,7 @@ namespace Async.Waiter.Behaviour
 
         async Task AwaitAndTrigger(int timeToAwait, CancellationToken cancellationToken)
         {
+            onDoWait.Invoke();
             await Task.Delay(timeToAwait, cancellationToken);
             if (cancellationToken.IsCancellationRequested)
             {

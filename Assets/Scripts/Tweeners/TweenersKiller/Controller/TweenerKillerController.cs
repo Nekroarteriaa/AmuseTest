@@ -1,9 +1,9 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace TweenersManager
+namespace Tweeners.TweenersKiller.Controller
 {
-    public class TweenerManager : MonoBehaviour
+    public class TweenerKillerController : MonoBehaviour
     {
         public void KillAllTweens()
         {

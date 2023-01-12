@@ -16,6 +16,7 @@ namespace Bounce.Behaviour
             var magnitude = Mathf.Min(currentVelocity.magnitude, BouncinessForceToDeal);
             rigidbody2DToBounce.velocity = Vector2.zero;
             direction += extraDirection;
+            bounceApplied = direction * magnitude;
             rigidbody2DToBounce.AddForce(direction * magnitude , ForceMode2D.Impulse);
 
             onBounce.Invoke();

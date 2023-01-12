@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7458053902541941468}
   - component: {fileID: 7458053902541941469}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: EventListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7458053903030426639}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: EventsListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}

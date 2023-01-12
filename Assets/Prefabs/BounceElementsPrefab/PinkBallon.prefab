@@ -19,6 +19,54 @@ PrefabInstance:
       propertyPath: movementDisplacementDuration
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 4982584049651166768, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2030135883, guid: f98674bb68442496e9073386f2076ee7, type: 3}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onDoWait.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2030135883, guid: f98674bb68442496e9073386f2076ee7, type: 3}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.SpriteRenderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Renderer, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2030135883, guid: f98674bb68442496e9073386f2076ee7, type: 3}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Sprite, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6122626628711081383, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
+      propertyPath: onFinishWaiting.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7920242894161029280, guid: 001eab3ecbf8c4ebfbc8c02ab09d9739, type: 3}
       propertyPath: m_Name
       value: PinkBallon

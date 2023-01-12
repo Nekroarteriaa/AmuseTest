@@ -37,7 +37,7 @@ namespace Pool.Controller
         private void Awake()
         {
             objectPool = new ObjectPool<PoolableObjectsController>(CreatePoolElements, GetObjectFromPool, DoReturnObjectToPool,
-                OnObjectPoolFull, false, instancesAmount, objectPoolMaxSize);
+                OnObjectPoolFull, true, instancesAmount, objectPoolMaxSize);
             pooledObjectsContainer = new GameObject($"{prefabToIntantiate.name}Container");
             pooledObjectsContainer.transform.position = Vector2.zero;
         }
