@@ -11,9 +11,13 @@ namespace Scores.Controller
         
         [SerializeField] 
         private ScriptableVariableFloat bestCharacterDistanceScriptableVariable;
+        
 
         [SerializeField]
         private UnityEvent onScoresCompared;
+        
+        [SerializeField] 
+        private UnityEvent onNormalScore;
 
         [SerializeField] 
         private UnityEvent<float> onNewRecord;
@@ -22,6 +26,8 @@ namespace Scores.Controller
         {
             if (currentCharacterDistanceScriptableVariable.Value > bestCharacterDistanceScriptableVariable.Value)
                 onNewRecord.Invoke(currentCharacterDistanceScriptableVariable.Value);
+            else
+                onNormalScore.Invoke();
             onScoresCompared.Invoke();
         }
     }

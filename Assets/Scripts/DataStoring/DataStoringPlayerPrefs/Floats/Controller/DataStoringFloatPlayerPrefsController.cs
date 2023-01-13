@@ -17,6 +17,9 @@ namespace DataStoring.DataStoringPlayerPrefs.Floats.Controller
             
         [FormerlySerializedAs("dataStoringPlayerPrefsBehaviour")] [SerializeField] 
         private DataStoringFloatPlayerPrefsBehaviour dataStoringFloatPlayerPrefsBehaviour;
+        
+        [SerializeField]
+        private ScriptableVariableFloat previousBestRecordCharacterDistanceScriptableVariable;
 
         [SerializeField] 
         private UnityEvent onDataLoaded;
@@ -27,11 +30,13 @@ namespace DataStoring.DataStoringPlayerPrefs.Floats.Controller
         public void LoadStoredData()
         {
             floatScriptableVariable.SetValue(dataStoringFloatPlayerPrefsBehaviour.DoLoadStoredData(desiredDataName));
+            previousBestRecordCharacterDistanceScriptableVariable.SetValue(floatScriptableVariable.Value);
             onDataLoaded.Invoke();
         }
 
         public void SaveData(float newData)
         {
+            previousBestRecordCharacterDistanceScriptableVariable.SetValue(floatScriptableVariable.Value);
             floatScriptableVariable.SetValue(newData);
             dataStoringFloatPlayerPrefsBehaviour.DoSaveData(desiredDataName, floatScriptableVariable.Value);
             onDataSaved.Invoke();
