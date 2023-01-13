@@ -12,7 +12,7 @@ namespace DontDestroyObjects.Controller
         [SerializeField]
         private DontDestroyObjectBehaviour dontDestroyObjectBehaviour;
 
-        private void Awake()
+        private void Start()
         {
             dontDestroyObjectBehaviour.DoNotDestroyDesiredObject(objectNotToDestroy.gameObject);
         }

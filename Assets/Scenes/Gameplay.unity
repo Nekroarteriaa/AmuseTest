@@ -11189,7 +11189,7 @@ MonoBehaviour:
   pointToPlaceInWorld: {fileID: 1641750184}
   pointToPlaceInWorldOffset: {x: 0, y: 0, z: 0}
   objectPoolMaxSize: 40
-  maxTimingSpawningInterval: 0.55
+  maxTimingSpawningInterval: 1.6
   minTimingSpawningInterval: 0
 --- !u!4 &320398707
 Transform:
@@ -16958,11 +16958,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToIntantiate: {fileID: 387525040137124731, guid: ea55ad3308e6e48a0b1c54d4fe5afc73, type: 3}
-  instancesAmount: 100
+  instancesAmount: 40
   pointToPlaceInWorld: {fileID: 1504823613}
   pointToPlaceInWorldOffset: {x: 0, y: 0, z: 0}
-  objectPoolMaxSize: 500
-  maxTimingSpawningInterval: 5.73
+  objectPoolMaxSize: 40
+  maxTimingSpawningInterval: 3
   minTimingSpawningInterval: 0
 --- !u!1 &496111949
 GameObject:
@@ -25985,11 +25985,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabToIntantiate: {fileID: 826965552921708173, guid: 437dc73f394ac4cceb86fe099856b168, type: 3}
-  instancesAmount: 100
+  instancesAmount: 20
   pointToPlaceInWorld: {fileID: 844453293}
   pointToPlaceInWorldOffset: {x: 0, y: 0, z: 0}
-  objectPoolMaxSize: 500
-  maxTimingSpawningInterval: 1.22
+  objectPoolMaxSize: 40
+  maxTimingSpawningInterval: 2
   minTimingSpawningInterval: 0
 --- !u!4 &1047181791
 Transform:
@@ -50731,7 +50731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2018197518
 RectTransform:
   m_ObjectHideFlags: 0
