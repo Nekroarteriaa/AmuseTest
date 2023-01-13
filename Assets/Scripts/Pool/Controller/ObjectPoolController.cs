@@ -60,12 +60,7 @@ namespace Pool.Controller
         {
             objectPool.Release(pooledObject);
         }
-
-        // void SpawnObjectInWorld()
-        // {
-        //     objectPool.Get();
-        // }
-
+        
         IEnumerator SpawnObjectInWorld()
         {
             float newInterval = Random.Range(minTimingSpawningInterval, maxTimingSpawningInterval);

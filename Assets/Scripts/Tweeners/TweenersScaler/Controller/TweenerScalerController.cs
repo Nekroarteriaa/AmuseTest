@@ -15,9 +15,13 @@ namespace Tweeners.TweenersScaler.Controller
         [SerializeField] 
         private Ease scaleEase;
 
+        [SerializeField] 
+        private float delayDuration;
+        
+
         public void ScaleTransform()
         {
-            transformToScale.DOScale(scaleAmount, tweeningDuration).SetEase(scaleEase).OnPlay(() =>
+            transformToScale.DOScale(scaleAmount, tweeningDuration).SetEase(scaleEase).SetDelay(delayDuration).OnPlay(() =>
             {
                 onPlayTweening.Invoke();
             }).OnComplete(() =>

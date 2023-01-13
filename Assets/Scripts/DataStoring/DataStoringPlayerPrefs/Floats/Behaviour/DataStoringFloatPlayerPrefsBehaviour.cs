@@ -1,9 +1,9 @@
 using DataStoring.Base;
 using UnityEngine;
 
-namespace DataStoring.DataStoringPlayerPrefs.Behaviour
+namespace DataStoring.DataStoringPlayerPrefs.Floats.Behaviour
 {
-    public class DataStoringPlayerPrefsBehaviour : DataStoringBase<float>
+    public class DataStoringFloatPlayerPrefsBehaviour : DataStoringBase<float>
     {
         public override float DoLoadStoredData(string dataSavedName)
         {

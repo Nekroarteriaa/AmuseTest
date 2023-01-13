@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Movement.YoyoMove.Controller
@@ -22,10 +23,24 @@ namespace Movement.YoyoMove.Controller
         private float movementDisplacementDuration;
 
         [SerializeField] 
-        private bool useAbsoluteValues;
+        private int yoyoLoops = -1;
+
+        [SerializeField] 
+        private Ease yoyoEase = Ease.InOutSine;
 
         [SerializeField] 
         private bool randomnessInDistance;
+        
+        [FormerlySerializedAs("useAbsoluteValues")] [SerializeField] 
+        private bool useAbsoluteValuesInRandomnessDistance;
+
+        [SerializeField] 
+        private bool killTweenMovementAfterSeconds;
+
+        [SerializeField] 
+        private float secondsToKillMovement;
+
+        #region UnityEvents
 
         private void OnEnable()
         {
@@ -36,7 +51,12 @@ namespace Movement.YoyoMove.Controller
         {
             transformToMove.DOKill();
             StopCoroutine(WaitForPositioning());
+            StopCoroutine(DoKillTweenAfterSeconds(secondsToKillMovement));
         }
+
+        #endregion
+
+        
 
         IEnumerator WaitForPositioning()
         {
@@ -51,7 +71,7 @@ namespace Movement.YoyoMove.Controller
 
             if (randomnessInDistance)
                 distanceToApply = Random.Range(-movementDistance, movementDistance);
-            if (useAbsoluteValues)
+            if (useAbsoluteValuesInRandomnessDistance)
                 distanceToApply = Mathf.Abs(distanceToApply);
 
             switch (desiredDirection)
@@ -73,8 +93,17 @@ namespace Movement.YoyoMove.Controller
                     throw new ArgumentOutOfRangeException();
             }
 
-            transformToMove.DOMove(directionVector, movementDisplacementDuration).SetLoops(-1, LoopType.Yoyo)
-                .SetEase(Ease.InOutSine);
+            transformToMove.DOMove(directionVector, movementDisplacementDuration).SetLoops(yoyoLoops, LoopType.Yoyo)
+                .SetEase(yoyoEase);
+            
+            if(!killTweenMovementAfterSeconds) return;
+            StartCoroutine(DoKillTweenAfterSeconds(secondsToKillMovement));
+        }
+
+        IEnumerator DoKillTweenAfterSeconds(float secondsToKill)
+        {
+            yield return new WaitForSeconds(secondsToKill);
+            transformToMove.DOKill();
         }
 
     }

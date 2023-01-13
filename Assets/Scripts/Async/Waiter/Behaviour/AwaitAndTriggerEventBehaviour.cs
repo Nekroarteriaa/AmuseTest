@@ -30,7 +30,7 @@ namespace Async.Waiter.Behaviour
 
         #region UnityEvents
 
-        private void Awake()
+        private void OnEnable()
         {
             cancellationTokenSource = new CancellationTokenSource();
         }
@@ -40,6 +40,12 @@ namespace Async.Waiter.Behaviour
         public void DoWait()
         {
             _ = AwaitAndTrigger(timeToAwaitInMilliseconds, CancellationWaitingTokenSource.Token);
+        }
+
+        public void CancelAwait()
+        {
+            cancellationTokenSource.Cancel();
+            cancellationTokenSource.Dispose();
         }
 
         async Task AwaitAndTrigger(int timeToAwait, CancellationToken cancellationToken)

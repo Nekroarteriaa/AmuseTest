@@ -2,6 +2,7 @@ using ScriptableVariables.Boolean;
 using Slingshot.Controller;
 using SlingshotAiming.Behaviour;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SlingshotAiming.Controller
 {
@@ -20,7 +21,8 @@ namespace SlingshotAiming.Controller
         [SerializeField]
         private ScriptableVariableBoolean isAimingScriptableVariable;
 
-        private bool hasThrownTheCharacter;
+        [SerializeField] 
+        private UnityEvent onAiming;
 
         # region UnityEvents
         
@@ -32,8 +34,7 @@ namespace SlingshotAiming.Controller
 
         private void Update()
         {
-            if(hasThrownTheCharacter) return;
-            
+
             if(isAimingScriptableVariable.Value)
                 slingshotAimingBehaviour.DoAim(currentCamera.ScreenToWorldPoint(Input.mousePosition), centerPoint.position, stripsMaxElasticityScriptableVariable.Value);
             else
@@ -45,11 +46,14 @@ namespace SlingshotAiming.Controller
 
         public override void OnFireButtonPressed()
         {
+            if(isAimingScriptableVariable.Value) return;
             isAimingScriptableVariable.SetValue(true);
+            onAiming.Invoke();
         }
 
         public override void OnFireButtonReleased()
         {
+            if(!isAimingScriptableVariable.Value) return;
             isAimingScriptableVariable.SetValue(false);
         }
 
